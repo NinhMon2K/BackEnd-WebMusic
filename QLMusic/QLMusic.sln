@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33103.184
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QL.MUSIC.API", "QL.MUSIC.API\QL.MUSIC.API.csproj", "{6425C9C2-FAE7-4F16-8E71-6F336C4F7036}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QL.MUSIC.BL", "QL.MUSIC.BL\QL.MUSIC.BL.csproj", "{2A1F8773-D0FA-460B-A057-0102A8ACAF83}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QL.MUSIC.DL", "QL.MUSIC.DL\QL.MUSIC.DL.csproj", "{1C200C1B-80D5-41FD-93F8-A6E035E978C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QL.MUSIC.Common", "QL.MUSIC.Common\QL.MUSIC.Common.csproj", "{18D40302-DD27-461D-BCED-632F970261C6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6425C9C2-FAE7-4F16-8E71-6F336C4F7036}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6425C9C2-FAE7-4F16-8E71-6F336C4F7036}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6425C9C2-FAE7-4F16-8E71-6F336C4F7036}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6425C9C2-FAE7-4F16-8E71-6F336C4F7036}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A1F8773-D0FA-460B-A057-0102A8ACAF83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A1F8773-D0FA-460B-A057-0102A8ACAF83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A1F8773-D0FA-460B-A057-0102A8ACAF83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A1F8773-D0FA-460B-A057-0102A8ACAF83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C200C1B-80D5-41FD-93F8-A6E035E978C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C200C1B-80D5-41FD-93F8-A6E035E978C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C200C1B-80D5-41FD-93F8-A6E035E978C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C200C1B-80D5-41FD-93F8-A6E035E978C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18D40302-DD27-461D-BCED-632F970261C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18D40302-DD27-461D-BCED-632F970261C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18D40302-DD27-461D-BCED-632F970261C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18D40302-DD27-461D-BCED-632F970261C6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8B63FD1D-A849-4EFC-9E5B-8B35C8C47D6A}
+	EndGlobalSection
+EndGlobal

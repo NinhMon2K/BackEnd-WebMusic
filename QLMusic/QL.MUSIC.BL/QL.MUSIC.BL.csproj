@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Exchange.WebServices" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\QL.MUSIC.Common\QL.MUSIC.Common.csproj" />
+    <ProjectReference Include="..\QL.MUSIC.DL\QL.MUSIC.DL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="AlbumBL\" />
+    <Folder Include="AlbumfavorBL\" />
+    <Folder Include="AlbumsongBL\" />
+    <Folder Include="BannerBL\" />
+    <Folder Include="CategoryBL\" />
+    <Folder Include="CategoryinfoBL\" />
+    <Folder Include="PlaylistBL\" />
+    <Folder Include="PlaylistinfoBL\" />
+    <Folder Include="SingerBL\" />
+    <Folder Include="SingerfavorBL\" />
+    <Folder Include="SongfavorBL\" />
+    <Folder Include="SonginfoBL\" />
+    <Folder Include="SongviewBL\" />
+    <Folder Include="UserinfoBL\" />
+  </ItemGroup>
+
+</Project>
