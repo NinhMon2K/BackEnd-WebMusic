@@ -43,7 +43,7 @@ namespace QL.MUSIC.DL
         /// <param name="record">Đối tượng bản ghi cần thêm mới</param>
         /// <returns>ID của bản ghi vừa thêm. Return về Guid rỗng nếu thêm mới thất bại</returns>
         /// Cretaed by: NNNINH (09/11/2022)
-        public Guid InsertRecord(T record);
+        public bool InsertRecord(T record);
         #endregion
 
         #region API Update
@@ -54,7 +54,7 @@ namespace QL.MUSIC.DL
         /// <param name="record">Đối tượng cần cập nhật theo</param>
         /// <returns>Đối tượng sau khi cập nhật</returns>
         /// Cretaed by: NNNINH (09/11/2022)
-        public Guid UpdateRecord(Guid recordId, T record);
+        public bool UpdateRecord(T record);
         #endregion
 
         #region API Delete
@@ -64,7 +64,7 @@ namespace QL.MUSIC.DL
         /// <param name="recordId">ID bản ghi cần xóa</param>
         /// <returns>ID bản ghi vừa xóa</returns>
         /// Cretaed by: NNNINH (09/11/2022)
-        public Guid DeleteRecord(Guid recordId);
+        public bool DeleteRecord(T record);
 
         /// <summary>
         /// Xóa nhiều bản ghi
@@ -83,7 +83,7 @@ namespace QL.MUSIC.DL
         /// <param name="recordId">Id bản ghi đưa vào (nếu là sửa)</param>
         /// <returns>Số lượng mã tài sản bị trùng</returns>
         /// Cretaed by:  NNNINH (09/11/2022)
-        public int DuplicateRecordCode(object recordCode, Guid recordId);
+        public int DuplicateRecordCode(object recordCode, int recordId);
         #endregion
         public PagingData<T> FilterRecord(string? keyword, int limit, int page);
     }

@@ -1254,11 +1254,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\QL.MUSIC.BE\\QLMusic\\QL.MUSIC.API\\QL.MUSIC.API.csproj",
+      "projectUniqueName": "D:\\BackEnd-WebMusic\\QLMusic\\QL.MUSIC.API\\QL.MUSIC.API.csproj",
       "projectName": "QL.MUSIC.API",
-      "projectPath": "D:\\QL.MUSIC.BE\\QLMusic\\QL.MUSIC.API\\QL.MUSIC.API.csproj",
+      "projectPath": "D:\\BackEnd-WebMusic\\QLMusic\\QL.MUSIC.API\\QL.MUSIC.API.csproj",
       "packagesPath": "C:\\Users\\NINH\\.nuget\\packages\\",
-      "outputPath": "D:\\QL.MUSIC.BE\\QLMusic\\QL.MUSIC.API\\obj\\",
+      "outputPath": "D:\\BackEnd-WebMusic\\QLMusic\\QL.MUSIC.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -1280,11 +1280,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\QL.MUSIC.BE\\QLMusic\\QL.MUSIC.BL\\QL.MUSIC.BL.csproj": {
-              "projectPath": "D:\\QL.MUSIC.BE\\QLMusic\\QL.MUSIC.BL\\QL.MUSIC.BL.csproj"
+            "D:\\BackEnd-WebMusic\\QLMusic\\QL.MUSIC.BL\\QL.MUSIC.BL.csproj": {
+              "projectPath": "D:\\BackEnd-WebMusic\\QLMusic\\QL.MUSIC.BL\\QL.MUSIC.BL.csproj"
             },
-            "D:\\QL.MUSIC.BE\\QLMusic\\QL.MUSIC.Common\\QL.MUSIC.Common.csproj": {
-              "projectPath": "D:\\QL.MUSIC.BE\\QLMusic\\QL.MUSIC.Common\\QL.MUSIC.Common.csproj"
+            "D:\\BackEnd-WebMusic\\QLMusic\\QL.MUSIC.Common\\QL.MUSIC.Common.csproj": {
+              "projectPath": "D:\\BackEnd-WebMusic\\QLMusic\\QL.MUSIC.Common\\QL.MUSIC.Common.csproj"
             }
           }
         }

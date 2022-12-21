@@ -1,4 +1,7 @@
 ﻿
+using Microsoft.Exchange.WebServices.Data;
+using QL.MUSIC.API.Interface;
+using QL.MUSIC.API.Service;
 using QL.MUSIC.BL;
 using QL.MUSIC.DL;
 using System.Reflection;
@@ -36,6 +39,7 @@ builder.Services.AddScoped<IAccountBL, AccountBL>();
 builder.Services.AddScoped<IAccountDL, AccountDL>();
 builder.Services.AddScoped<IAdminAccountBL, AdminAccountBL>();
 builder.Services.AddScoped<IAdminAccountDL, AdminAcoountDl>();
+builder.Services.AddSingleton<IStorageService, StorageService>();
 
 // Lấy dữ liệu Connection string từ file appsettings.Development.json
 DataContext.MySqlConnectionString = builder.Configuration.GetConnectionString("MySqlConnectionString");

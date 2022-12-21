@@ -1,0 +1,15 @@
+D:\BackEnd-WebMusic\QLMusic\QL.MUSIC.DL\bin\Release\net6.0\QL.MUSIC.DL.deps.json
+D:\BackEnd-WebMusic\QLMusic\QL.MUSIC.DL\bin\Release\net6.0\QL.MUSIC.DL.dll
+D:\BackEnd-WebMusic\QLMusic\QL.MUSIC.DL\bin\Release\net6.0\QL.MUSIC.DL.pdb
+D:\BackEnd-WebMusic\QLMusic\QL.MUSIC.DL\bin\Release\net6.0\QL.MUSIC.Common.dll
+D:\BackEnd-WebMusic\QLMusic\QL.MUSIC.DL\bin\Release\net6.0\QL.MUSIC.Common.pdb
+D:\BackEnd-WebMusic\QLMusic\QL.MUSIC.DL\obj\Release\net6.0\QL.MUSIC.DL.csproj.AssemblyReference.cache
+D:\BackEnd-WebMusic\QLMusic\QL.MUSIC.DL\obj\Release\net6.0\QL.MUSIC.DL.GeneratedMSBuildEditorConfig.editorconfig
+D:\BackEnd-WebMusic\QLMusic\QL.MUSIC.DL\obj\Release\net6.0\QL.MUSIC.DL.AssemblyInfoInputs.cache
+D:\BackEnd-WebMusic\QLMusic\QL.MUSIC.DL\obj\Release\net6.0\QL.MUSIC.DL.AssemblyInfo.cs
+D:\BackEnd-WebMusic\QLMusic\QL.MUSIC.DL\obj\Release\net6.0\QL.MUSIC.DL.csproj.CoreCompileInputs.cache
+D:\BackEnd-WebMusic\QLMusic\QL.MUSIC.DL\obj\Release\net6.0\QL.MUSIC.DL.csproj.CopyComplete
+D:\BackEnd-WebMusic\QLMusic\QL.MUSIC.DL\obj\Release\net6.0\QL.MUSIC.DL.dll
+D:\BackEnd-WebMusic\QLMusic\QL.MUSIC.DL\obj\Release\net6.0\refint\QL.MUSIC.DL.dll
+D:\BackEnd-WebMusic\QLMusic\QL.MUSIC.DL\obj\Release\net6.0\QL.MUSIC.DL.pdb
+D:\BackEnd-WebMusic\QLMusic\QL.MUSIC.DL\obj\Release\net6.0\ref\QL.MUSIC.DL.dll

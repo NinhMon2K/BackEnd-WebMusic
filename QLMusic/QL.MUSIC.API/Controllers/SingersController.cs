@@ -5,7 +5,7 @@ using QL.MUSIC.Common.Entities;
 
 namespace QL.MUSIC.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/[controller]")]
     [ApiController]
     public class SingersController : BasesController<singer>
     {

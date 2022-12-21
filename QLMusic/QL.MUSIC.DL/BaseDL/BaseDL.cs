@@ -30,7 +30,7 @@ namespace QL.MUSIC.DL
             using (var mysqlConnection = new MySqlConnection(DataContext.MySqlConnectionString))
             {
                 // Thực hiện gọi vào DB
-                records = (List<T>) mysqlConnection.Query<T>(
+                records = (List<T>)mysqlConnection.Query<T>(
                    storedProcedureName,
                    commandType: System.Data.CommandType.StoredProcedure);
             }
@@ -80,28 +80,19 @@ namespace QL.MUSIC.DL
         /// <param name="record">Đối tượng bản ghi cần thêm mới</param>
         /// <returns>ID của bản ghi vừa thêm. Return về Guid rỗng nếu thêm mới thất bại</returns>
         /// Cretaed by: NNNINH (10/11/2022)
-        public Guid InsertRecord(T record)
+        public bool InsertRecord(T record)
         {
-            // Chuẩn bị tham số đầu vào cho procedure
             var parameters = new DynamicParameters();
-            var newRecordID = Guid.NewGuid();
             var properties = typeof(T).GetProperties();
             foreach (var property in properties)
             {
                 string propertyName = property.Name;
                 object propertyValue;
-                var primaryKeyAttribute = (PrimaryKeyAttribute)Attribute.GetCustomAttribute(property, typeof(PrimaryKeyAttribute));
-                if (primaryKeyAttribute != null)
-                {
-                    propertyValue = newRecordID;
-                }
-                else
-                {
-                    propertyValue = property.GetValue(record, null);
-                }
+
+                propertyValue = property.GetValue(record, null);
+
                 parameters.Add($"v_{propertyName}", propertyValue);
             }
-
             // Khởi tạo kết nối tới DB MySQL
             string connectionString = DataContext.MySqlConnectionString;
             int numberOfAffectedRows = 0;
@@ -109,53 +100,22 @@ namespace QL.MUSIC.DL
             {
                 // Khai báo tên prodecure Insert
                 string storedProcedureName = String.Format(Resource.Proc_Add, typeof(T).Name);
-
                 // Thực hiện gọi vào DB để chạy procedure
                 numberOfAffectedRows = mysqlConnection.Execute(storedProcedureName, parameters, commandType: System.Data.CommandType.StoredProcedure);
             }
-
             // Xử lý dữ liệu trả về
             if (numberOfAffectedRows > 0)
             {
-                return newRecordID;
+                return true;
             }
             else
             {
-                return Guid.Empty;
+                return false;
             }
-        } 
+        }
         #endregion
-
-
-        #region API Update
-        /// <summary>
-        /// Cập nhật 1 bản ghi
-        /// </summary>
-        /// <param name="recordId">ID bản ghi cần cập nhật</param>
-        /// <param name="record">Đối tượng cần cập nhật theo</param>
-        /// <returns>ID của bản ghi sau khi cập nhật. Return về Guid rỗng nếu cập nhật thất bại</returns>
-        /// Cretaed by: NNNINH (11/11/2022)
-        public Guid UpdateRecord(Guid recordId, T record)
+        public bool UpdateRecord(T record)
         {
-            // Chuẩn bị tham số đầu vào cho procedure
-            var parameters = new DynamicParameters();
-            var properties = typeof(T).GetProperties();
-            foreach (var property in properties)
-            {
-                string propertyName = property.Name;
-                object propertyValue;
-                var primaryKeyAttribute = (PrimaryKeyAttribute)Attribute.GetCustomAttribute(property, typeof(PrimaryKeyAttribute));
-                if (primaryKeyAttribute != null)
-                {
-                    propertyValue = recordId;
-                }
-                else
-                {
-                    propertyValue = property.GetValue(record, null);
-                }
-                parameters.Add($"v_{propertyName}", propertyValue);
-            }
-
             // Khởi tạo kết nối tới DB MySQL
             string connectionString = DataContext.MySqlConnectionString;
             int numberOfAffectedRows = 0;
@@ -163,21 +123,22 @@ namespace QL.MUSIC.DL
             {
                 // Khai báo tên prodecure Insert
                 string storedProcedureName = String.Format(Resource.Proc_Update, typeof(T).Name);
-
                 // Thực hiện gọi vào DB để chạy procedure
-                numberOfAffectedRows = mysqlConnection.Execute(storedProcedureName, parameters, commandType: System.Data.CommandType.StoredProcedure);
+                numberOfAffectedRows = mysqlConnection.Execute(storedProcedureName, record, commandType: System.Data.CommandType.StoredProcedure);
             }
             // Xử lý dữ liệu trả về
             if (numberOfAffectedRows > 0)
             {
-                return recordId;
+                return true;
             }
             else
             {
-                return Guid.Empty;
+                return false;
             }
         }
-        #endregion
+
+
+
 
 
         #region API Delete
@@ -187,40 +148,38 @@ namespace QL.MUSIC.DL
         /// <param name="recordId">ID bản ghi cần xóa</param>
         /// <returns>ID bản ghi vừa xóa</returns>
         /// Cretaed by: NNNINH (11/11/2022)
-        public Guid DeleteRecord(Guid recordId)
+        public bool DeleteRecord(T record)
         {
-            // Chuẩn bị tham số đầu vào cho procedure
             var parameters = new DynamicParameters();
             var properties = typeof(T).GetProperties();
             foreach (var property in properties)
             {
-                var primaryKeyAttribute = (PrimaryKeyAttribute)Attribute.GetCustomAttribute(property, typeof(PrimaryKeyAttribute));
-                if (primaryKeyAttribute != null)
-                {
-                    parameters.Add($"v_{property.Name}", recordId);
-                    break;
-                }
-            }
+                string propertyName = property.Name;
+                object propertyValue;
 
-            // Khởi tạo kết nối tới DB MySQL
-            string connectionString = DataContext.MySqlConnectionString;
+                propertyValue = property.GetValue(record, null);
+
+                parameters.Add($"v_{propertyName}", propertyValue);
+            }
+                // Khởi tạo kết nối tới DB MySQL
+
+                string connectionString = DataContext.MySqlConnectionString;
             int numberOfAffectedRows = 0;
             using (var mysqlConnection = new MySqlConnection(connectionString))
             {
                 // Khai báo tên prodecure Insert
                 string storedProcedureName = String.Format(Resource.Proc_Delete, typeof(T).Name);
-
                 // Thực hiện gọi vào DB để chạy procedure
                 numberOfAffectedRows = mysqlConnection.Execute(storedProcedureName, parameters, commandType: System.Data.CommandType.StoredProcedure);
             }
             // Xử lý dữ liệu trả về
             if (numberOfAffectedRows > 0)
             {
-                return recordId;
+                return true;
             }
             else
             {
-                return Guid.Empty;
+                return false;
             }
         }
 
@@ -288,7 +247,7 @@ namespace QL.MUSIC.DL
         /// <param name="recordId">Id bản ghi đưa vào (nếu là sửa)</param>
         /// <returns>Số lượng mã tài sản bị trùng</returns>
         /// Cretaed by: NNNINH (10/11/2022)
-        public int DuplicateRecordCode(object recordCode, Guid recordId)
+        public int DuplicateRecordCode(object recordCode, int recordId)
         {
             // Khai báo tên prodecure
             string storedProcedureName = String.Format(Resource.Proc_DuplicateCode, typeof(T).Name);
@@ -321,7 +280,7 @@ namespace QL.MUSIC.DL
             }
 
             return duplicates;
-        } 
+        }
         #endregion
 
         public PagingData<T> FilterRecord(string? keyword, int limit, int page)
@@ -352,16 +311,13 @@ namespace QL.MUSIC.DL
                 // Xử lý dữ liệu trả về
                 var assets = multiAssets.Read<T>();
                 var totalCount = multiAssets.Read<long>().Single();
-                
+
 
                 filterResponse = new PagingData<T>(assets, totalCount);
             }
 
             return filterResponse;
         }
-
-
-
 
 
     }

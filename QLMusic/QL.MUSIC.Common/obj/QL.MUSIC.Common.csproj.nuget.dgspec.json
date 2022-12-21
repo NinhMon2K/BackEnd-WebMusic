@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\QL.MUSIC.BE\\QLMusic\\QL.MUSIC.Common\\QL.MUSIC.Common.csproj": {}
+    "D:\\BackEnd-WebMusic\\QLMusic\\QL.MUSIC.Common\\QL.MUSIC.Common.csproj": {}
   },
   "projects": {
-    "D:\\QL.MUSIC.BE\\QLMusic\\QL.MUSIC.Common\\QL.MUSIC.Common.csproj": {
+    "D:\\BackEnd-WebMusic\\QLMusic\\QL.MUSIC.Common\\QL.MUSIC.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\QL.MUSIC.BE\\QLMusic\\QL.MUSIC.Common\\QL.MUSIC.Common.csproj",
+        "projectUniqueName": "D:\\BackEnd-WebMusic\\QLMusic\\QL.MUSIC.Common\\QL.MUSIC.Common.csproj",
         "projectName": "QL.MUSIC.Common",
-        "projectPath": "D:\\QL.MUSIC.BE\\QLMusic\\QL.MUSIC.Common\\QL.MUSIC.Common.csproj",
+        "projectPath": "D:\\BackEnd-WebMusic\\QLMusic\\QL.MUSIC.Common\\QL.MUSIC.Common.csproj",
         "packagesPath": "C:\\Users\\NINH\\.nuget\\packages\\",
-        "outputPath": "D:\\QL.MUSIC.BE\\QLMusic\\QL.MUSIC.Common\\obj\\",
+        "outputPath": "D:\\BackEnd-WebMusic\\QLMusic\\QL.MUSIC.Common\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

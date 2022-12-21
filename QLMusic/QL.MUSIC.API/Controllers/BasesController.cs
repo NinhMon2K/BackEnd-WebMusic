@@ -4,6 +4,7 @@ using QL.MUSIC.BL;
 using QL.MUSIC.Common.Entities;
 using QL.MUSIC.Common.Enums;
 using QL.MUSIC.Common.Resources;
+using System.Net.Http.Headers;
 
 namespace QL.MUSIC.API.Controllers
 {
@@ -42,7 +43,7 @@ namespace QL.MUSIC.API.Controllers
             try
             {
                 res.Data = _baseBL.GetAllRecords();
-               
+
             }
             catch (Exception ex)
             {
@@ -100,49 +101,22 @@ namespace QL.MUSIC.API.Controllers
         /// <returns>ID đối tượng vừa thêm mới</returns>
         /// Cretaed by: NNNINH (10/11/2022)
         [HttpPost]
-        public IActionResult InsertRecord([FromBody] T record)
+        public ServiceResult InsertRecord([FromBody] T record)
         {
+            var res = new ServiceResult();
             try
             {
-                if (record != null)
-                {
-                    var result = _baseBL.InsertRecord(record);
-
-                    if (result.Success)
-                    {
-                        return StatusCode(StatusCodes.Status201Created, result.Data);
-                    }
-                    else
-                    {
-                        return StatusCode(StatusCodes.Status400BadRequest, new ErrorResult(
-                            ErrorCode.Exception,
-                            Resource.DevMsg_ValidateFailed,
-                            Resource.UserMsg_ValidateFailed,
-                            result.Data,
-                            HttpContext.TraceIdentifier));
-                    }
-                }
-                else
-                {
-                    return StatusCode(StatusCodes.Status500InternalServerError, new ErrorResult(
-                    ErrorCode.Exception,
-                    Resource.DevMsg_Exception,
-                    Resource.UserMsg_Exception,
-                    Resource.MoreInfo_Exception,
-                    HttpContext.TraceIdentifier));
-                }
+                res.Data = _baseBL.InsertRecord(record);
 
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                return StatusCode(StatusCodes.Status500InternalServerError, new ErrorResult(
-                    ErrorCode.Exception,
-                    Resource.DevMsg_Exception,
-                    Resource.UserMsg_Exception,
-                    Resource.MoreInfo_Exception,
-                    HttpContext.TraceIdentifier));
+                res.status_code = 0;
+                res.Data = false;
+                return res;
             }
+            return res;
         }
         #endregion
 
@@ -154,40 +128,28 @@ namespace QL.MUSIC.API.Controllers
         /// <param name="record">Đối tượng cần cập nhật theo</param>
         /// <returns>Đối tượng sau khi cập nhật</returns>
         /// Cretaed by:  NNNINH (11/11/2022)
-        [HttpPut("{recordId}")]
-        public IActionResult UpdateRecord([FromRoute] Guid recordId, [FromBody] T record)
+        [HttpPut]
+        public ServiceResult UpdateRecord([FromBody] T record)
         {
+            var res = new ServiceResult();
             try
             {
-                var result = _baseBL.UpdateRecord(recordId, record);
+                res.Data = _baseBL.UpdateRecord(record);
 
-                if (result.Success)
-                {
-                    return StatusCode(StatusCodes.Status200OK, result.Data);
-                }
-                else
-                {
-                    return StatusCode(StatusCodes.Status400BadRequest, new ErrorResult(
-                     ErrorCode.Exception,
-                        Resource.DevMsg_ValidateFailed,
-                        Resource.UserMsg_ValidateFailed,
-                        result.Data,
-                        HttpContext.TraceIdentifier));
-                }
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                return StatusCode(StatusCodes.Status500InternalServerError, new ErrorResult(
-                   ErrorCode.Exception,
-                    Resource.DevMsg_Exception,
-                    Resource.UserMsg_Exception,
-                    Resource.MoreInfo_Exception,
-                    HttpContext.TraceIdentifier));
+                res.status_code = 0;
+                res.Data = false;
+                return res;
             }
+            return res;
+          
+
         }
         #endregion
-       
+
         #region API Delete
         /// <summary>
         /// Xóa 1 bản ghi
@@ -195,37 +157,24 @@ namespace QL.MUSIC.API.Controllers
         /// <param name="recordId">ID bản ghi cần xóa</param>
         /// <returns>ID bản ghi vừa xóa</returns>
         /// Cretaed by: NNNINH (11/11/2022)
-        [HttpDelete("{recordId}")]
-        public IActionResult DeleteRecord(Guid recordId)
+        [HttpPost("Delete")]
+        public ServiceResult DeleteRecord([FromBody] T record)
         {
+            var res = new ServiceResult();
             try
             {
-                var result = _baseBL.DeleteRecord(recordId);
+                res.Data = _baseBL.DeleteRecord(record);
 
-                if (result != Guid.Empty)
-                {
-                    return StatusCode(StatusCodes.Status200OK, result);
-                }
-                else
-                {
-                    return StatusCode(StatusCodes.Status400BadRequest, new ErrorResult(
-                        ErrorCode.Exception,
-                        Resource.DevMsg_DeleteFailed,
-                        Resource.UserMsg_DeleteFailed,
-                        result,
-                        HttpContext.TraceIdentifier));
-                }
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                return StatusCode(StatusCodes.Status500InternalServerError, new ErrorResult(
-                    ErrorCode.Exception,
-                    Resource.DevMsg_Exception,
-                    Resource.UserMsg_Exception,
-                    Resource.MoreInfo_Exception,
-                    HttpContext.TraceIdentifier));
+                res.status_code = 0;
+                res.Data = false;
+                return res;
             }
+            return res;
+
         }
 
         /// <summary>
@@ -300,6 +249,8 @@ namespace QL.MUSIC.API.Controllers
                     HttpContext.TraceIdentifier));
             }
         }
+
+
         #endregion
     }
 }

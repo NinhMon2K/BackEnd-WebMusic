@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pzVem4QTWLHh1QVl+VCYiIlKvXY2kwAFF1SVkQVJgwnlio/oKo4Jmf/7eZqAwJOX6HJ8WffXvNMqhU1Yyk+Gtw==",
+  "dgSpecHash": "hJm8oRsSU+WLmkGRurmI+JpyLlA/rr9UtqcrLLVIcdau3lTOtUWKLCTM9oQO6Ul6pDGmozfdfEJCalxkALi/eA==",
   "success": true,
-  "projectFilePath": "D:\\QL.MUSIC.BE\\QLMusic\\QL.MUSIC.DL\\QL.MUSIC.DL.csproj",
+  "projectFilePath": "D:\\BackEnd-WebMusic\\QLMusic\\QL.MUSIC.DL\\QL.MUSIC.DL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\NINH\\.nuget\\packages\\dapper.strongname\\2.0.123\\dapper.strongname.2.0.123.nupkg.sha512",
     "C:\\Users\\NINH\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",

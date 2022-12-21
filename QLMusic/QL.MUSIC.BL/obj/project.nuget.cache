@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Eshobb3CfpOlGPu148Of9SAgHBfrJY6uAkAaUPoSYds5/pSB6tkCrCjU2gVQ4OS66yqltmMrgVYkR5J/zhjakg==",
+  "dgSpecHash": "5SpN90L3IN3lgvqLzlllT2BwHDSqB4cTUlstw/C6sy467Wudqgq0n0inobMRclWIOcHwg+kdg5rdDZjG4WQhaA==",
   "success": true,
-  "projectFilePath": "D:\\QL.MUSIC.BE\\QLMusic\\QL.MUSIC.BL\\QL.MUSIC.BL.csproj",
+  "projectFilePath": "D:\\BackEnd-WebMusic\\QLMusic\\QL.MUSIC.BL\\QL.MUSIC.BL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\NINH\\.nuget\\packages\\dapper.strongname\\2.0.123\\dapper.strongname.2.0.123.nupkg.sha512",
     "C:\\Users\\NINH\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",

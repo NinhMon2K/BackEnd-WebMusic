@@ -33,3 +33,17 @@ D:\QL.MUSIC.BE\QLMusic\QL.MUSIC.Common\obj\Debug\net6.0\QL.MUSIC.Common.dll
 D:\QL.MUSIC.BE\QLMusic\QL.MUSIC.Common\obj\Debug\net6.0\refint\QL.MUSIC.Common.dll
 D:\QL.MUSIC.BE\QLMusic\QL.MUSIC.Common\obj\Debug\net6.0\QL.MUSIC.Common.pdb
 D:\QL.MUSIC.BE\QLMusic\QL.MUSIC.Common\obj\Debug\net6.0\ref\QL.MUSIC.Common.dll
+D:\BackEnd-WebMusic\QLMusic\QL.MUSIC.Common\bin\Debug\net6.0\QL.MUSIC.Common.deps.json
+D:\BackEnd-WebMusic\QLMusic\QL.MUSIC.Common\bin\Debug\net6.0\QL.MUSIC.Common.dll
+D:\BackEnd-WebMusic\QLMusic\QL.MUSIC.Common\bin\Debug\net6.0\QL.MUSIC.Common.pdb
+D:\BackEnd-WebMusic\QLMusic\QL.MUSIC.Common\obj\Debug\net6.0\QL.MUSIC.Common.csproj.AssemblyReference.cache
+D:\BackEnd-WebMusic\QLMusic\QL.MUSIC.Common\obj\Debug\net6.0\QL.MUSIC.Common.Resources.Resource.resources
+D:\BackEnd-WebMusic\QLMusic\QL.MUSIC.Common\obj\Debug\net6.0\QL.MUSIC.Common.csproj.GenerateResource.cache
+D:\BackEnd-WebMusic\QLMusic\QL.MUSIC.Common\obj\Debug\net6.0\QL.MUSIC.Common.GeneratedMSBuildEditorConfig.editorconfig
+D:\BackEnd-WebMusic\QLMusic\QL.MUSIC.Common\obj\Debug\net6.0\QL.MUSIC.Common.AssemblyInfoInputs.cache
+D:\BackEnd-WebMusic\QLMusic\QL.MUSIC.Common\obj\Debug\net6.0\QL.MUSIC.Common.AssemblyInfo.cs
+D:\BackEnd-WebMusic\QLMusic\QL.MUSIC.Common\obj\Debug\net6.0\QL.MUSIC.Common.csproj.CoreCompileInputs.cache
+D:\BackEnd-WebMusic\QLMusic\QL.MUSIC.Common\obj\Debug\net6.0\QL.MUSIC.Common.dll
+D:\BackEnd-WebMusic\QLMusic\QL.MUSIC.Common\obj\Debug\net6.0\refint\QL.MUSIC.Common.dll
+D:\BackEnd-WebMusic\QLMusic\QL.MUSIC.Common\obj\Debug\net6.0\QL.MUSIC.Common.pdb
+D:\BackEnd-WebMusic\QLMusic\QL.MUSIC.Common\obj\Debug\net6.0\ref\QL.MUSIC.Common.dll

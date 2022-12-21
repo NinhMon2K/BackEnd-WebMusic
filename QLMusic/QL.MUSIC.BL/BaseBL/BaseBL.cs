@@ -70,42 +70,17 @@ namespace QL.MUSIC.BL
         /// <param name="record">Đối tượng bản ghi cần thêm mới</param>
         /// <returns>ID của bản ghi vừa thêm. Return về Guid rỗng nếu thêm mới thất bại</returns>
         /// Cretaed by: NNNINH (10/11/2022)
-        public ServiceResponse InsertRecord(T record)
+        public bool InsertRecord(T record)
         {
-            var validateResult = ValidateRequestData(record, Guid.Empty);
+            var inputRecord = _baseDL.InsertRecord(record);
 
-            if (validateResult != null && validateResult.Success)
+            if (inputRecord == true)
             {
-                var newRecordID = _baseDL.InsertRecord(record);
-
-                if (newRecordID != Guid.Empty)
-                {
-                    return new ServiceResponse
-                    {
-                        Success = true,
-                        Data = newRecordID
-                    };
-                }
-                else
-                {
-                    return new ServiceResponse
-                    {
-                        Success = false,
-                        Data = new ErrorResult(
-                            ErrorCode.InvalidInput,
-                            Resource.DevMsg_InsertFailed,
-                            Resource.UserMsg_InsertFailed,
-                            Resource.MoreInfo_InsertFailed)
-                    };
-                }
+                return true;
             }
             else
             {
-                return new ServiceResponse
-                {
-                    Success = false,
-                    Data = validateResult?.Data
-                };
+                return false;
             }
         }
         #endregion
@@ -118,43 +93,19 @@ namespace QL.MUSIC.BL
         /// <param name="record">Đối tượng cần cập nhật theo</param>
         /// <returns>Đối tượng sau khi cập nhật</returns>
         /// Cretaed by: NNNINH (11/11/2022)
-        public ServiceResponse UpdateRecord(Guid recordId, T record)
+        public bool UpdateRecord(T record)
         {
-            var validateResult = ValidateRequestData(record, recordId);
+            var inputRecordID = _baseDL.UpdateRecord(record);
 
-            if (validateResult != null && validateResult.Success)
+            if (inputRecordID == true)
             {
-                var inputRecordID = _baseDL.UpdateRecord(recordId, record);
-
-                if (inputRecordID != Guid.Empty)
-                {
-                    return new ServiceResponse
-                    {
-                        Success = true,
-                        Data = inputRecordID
-                    };
-                }
-                else
-                {
-                    return new ServiceResponse
-                    {
-                        Success = false,
-                        Data = new ErrorResult(
-                            ErrorCode.InvalidInput,
-                            Resource.DevMsg_InsertFailed,
-                            Resource.UserMsg_InsertFailed,
-                            Resource.MoreInfo_InsertFailed)
-                    };
-                }
+                return true;
             }
             else
             {
-                return new ServiceResponse
-                {
-                    Success = false,
-                    Data = validateResult?.Data
-                };
+                return false;
             }
+
         }
         #endregion
 
@@ -165,9 +116,9 @@ namespace QL.MUSIC.BL
         /// <param name="recordId">ID bản ghi cần xóa</param>
         /// <returns>ID bản ghi vừa xóa</returns>
         /// Cretaed by: NNNINH (11/11/2022)
-        public Guid DeleteRecord(Guid recordId)
+        public bool DeleteRecord(T record)
         {
-            return _baseDL.DeleteRecord(recordId);
+            return _baseDL.DeleteRecord(record);
         }
 
         /// <summary>
@@ -179,59 +130,6 @@ namespace QL.MUSIC.BL
         public List<string> DeleteMultiRecords(List<string> recordIdList)
         {
             return _baseDL.DeleteMultiRecords(recordIdList);
-        }
-        #endregion
-
-        #region ValidateData 
-        /// <summary>
-        /// Validate dữ liệu truyền lên từ API
-        /// </summary>
-        /// <param name="record">Đối tượng cần validate</param>
-        /// <param name="recordId">Id đối tượng cần validate</param>
-        /// <returns>Đối tượng ServiceResponse mô tả validate thành công hay thất bại</returns>
-        /// Cretaed by: NNNINH (10/11/2022)
-        private ServiceResponse ValidateRequestData(T record, Guid recordId)
-        {
-            // Validate dữ liệu đầu vào
-            var properties = typeof(T).GetProperties();
-            var validateFailures = new List<string>();
-            //var validateFailures = new List<string>();
-
-            if (record != null)
-            {
-                // duyệt qua từng phần tử
-                foreach (var property in properties)
-                {           
-                    // Lấy giá trị của thuộc tính đó
-                    var propertyValue = property.GetValue(record, null);
-                    // Kiểm tra property có require
-                    var IsNotNullOrEmptyAttribute = (IsNotNullOrEmptyAttribute?)Attribute.GetCustomAttribute(property, typeof(IsNotNullOrEmptyAttribute));
-                    // Kiểm tra xem property đã có attibute Required không ho
-                    if (IsNotNullOrEmptyAttribute != null && string.IsNullOrEmpty(propertyValue?.ToString()))
-                    {
-                        validateFailures.Add( IsNotNullOrEmptyAttribute.ErrorMessage);
-                    }
-                    var IsNotDuplicateAttribute = (IsNotDuplicateAttribute?)Attribute.GetCustomAttribute(property, typeof(IsNotDuplicateAttribute));
-                    if (IsNotDuplicateAttribute != null)
-                    {
-                        int count = _baseDL.DuplicateRecordCode(propertyValue, recordId);
-                        if (count > 0) validateFailures.Add(IsNotDuplicateAttribute.ErrorMessage);
-                    }
-                }
-            }
-
-            if (validateFailures.Count > 0)
-            {
-                return new ServiceResponse
-                {
-                    Success = false,
-                    Data = validateFailures
-                };
-            }
-            return new ServiceResponse
-            {
-                Success = true
-            };
         }
         #endregion
 
@@ -250,6 +148,11 @@ namespace QL.MUSIC.BL
         public PagingData<T> FilterRecord(string? keyword, int limit, int page)
         {
             return _baseDL.FilterRecord(keyword, limit, page);
+        }
+
+        public ServiceResponse UpdateRecord(Guid recordId, T record)
+        {
+            throw new NotImplementedException();
         }
         #endregion
 
